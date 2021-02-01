@@ -1,0 +1,22 @@
+{
+  "name": "fyp-use-case",
+  "version": "1.0.0",
+  "description": "An image processor, part of the FYP 2020/2021",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Matt-RJ/fyp-use-case.git"
+  },
+  "keywords": [
+    "aws"
+  ],
+  "author": "Mantas Rajackas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Matt-RJ/fyp-use-case/issues"
+  },
+  "homepage": "https://github.com/Matt-RJ/fyp-use-case#readme"
+}
