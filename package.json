@@ -4,7 +4,9 @@
   "description": "An image processor, part of the FYP 2020/2021",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint ./src",
+    "zip-win": "rm -rf node_modules && npm i --production && tar.exe -acf fyp-use-case.zip package.json node_modules src && npm i"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,22 @@
   "bugs": {
     "url": "https://github.com/Matt-RJ/fyp-use-case/issues"
   },
-  "homepage": "https://github.com/Matt-RJ/fyp-use-case#readme"
+  "homepage": "https://github.com/Matt-RJ/fyp-use-case#readme",
+  "devDependencies": {
+    "depcheck": "^1.3.1",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "pre-commit": "^1.2.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "jimp": "^0.16.1",
+    "serverless-http": "^2.7.0"
+  },
+  "pre-commit": [
+    "lint",
+    "test",
+    "depcheck"
+  ]
 }
