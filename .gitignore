@@ -116,4 +116,4 @@ dist
 .pnp.*
 
 # For manual Lambda builds
-.zip
+*.zip

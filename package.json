@@ -4,8 +4,8 @@
   "description": "An image processor, part of the FYP 2020/2021",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint ./src",
+    "depcheck": "npx depcheck",
     "zip-win": "rm -rf node_modules && npm i --production && tar.exe -acf fyp-use-case.zip package.json node_modules src && npm i"
   },
   "repository": {
@@ -29,13 +29,14 @@
     "pre-commit": "^1.2.2"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "jimp": "^0.16.1",
+    "multer": "^1.4.2",
     "serverless-http": "^2.7.0"
   },
   "pre-commit": [
     "lint",
-    "test",
     "depcheck"
   ]
 }
