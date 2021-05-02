@@ -1,6 +1,5 @@
 const serverless = require('serverless-http');
 const express = require('express');
-const bodyParser = require('body-parser');
 const Jimp = require('jimp');
 const multer = require('multer');
 
@@ -8,7 +7,7 @@ const app = express();
 const storage = multer.memoryStorage();
 const upload = multer({ storage });
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 const ALLOWED_IMAGE_MIMES = [
   Jimp.MIME_PNG,
@@ -17,7 +16,7 @@ const ALLOWED_IMAGE_MIMES = [
 ];
 
 // Test route
-app.get('/v1/Test', (req, res) => {
+app.get('/v1/Test/', (req, res) => {
   res.status(200).send('OK');
 });
 
@@ -27,7 +26,6 @@ app.get('/v1/Test', (req, res) => {
  * - Image: Encoded image
  * - ResizeX, ResizeY: New image dimensions
  * - Allowed image types: png, jpg, gif
- * TODO: Limit image size
  */
 app.post('/v1/Image/Resize/', upload.single('Image'), async (req, res) => {
   console.log('Resize endpoint hit');
@@ -70,6 +68,8 @@ app.all('*', (req, res) => {
   res.send('Not Found');
 });
 
-module.exports.handler = serverless(app, {
+const index = serverless(app, {
   binary: ALLOWED_IMAGE_MIMES
 });
+
+exports.handler = index;
