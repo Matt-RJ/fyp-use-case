@@ -18,4 +18,4 @@ This repo contains part of my final year project for Applied Computing.
         * Method: ANY
         * Resource Path: /{proxy+}
         * Integration target: Your Lambda function name
-    4. Crate the API.
+    4. Create the API.
